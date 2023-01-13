@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> CyberLaw </title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Play:wght@400;700&display=swap"
+            rel="stylesheet">
+</head>
+
+<body>
+<div class="wrapper" id="wrap">
+    <div class="load blur" id="loading" v-if="loading">
+        <div class="loading"></div>
+    </div>
+    <div :style="{display: displaymodalblock}">
+        <div class="modal off" id="modalo">
+            <span class="modal__exit"> </span>
+            <div class="flex1">
+                <a onclick="closeinfowindow();" class="modal__head-exit"> </a>
+            </div>
+            <div class="modal__head">
+                {{ selectedindex.main_title }}
+            </div>
+            <div class="modal__head-name"> {{ selectedname }}</div>
+            <div class="modal__box">
+                <div class="modal__box-img">
+                    <div class="modal__box-img--img"><img v-bind:src="selectedindex.image"></div>
+                </div>
+                <div class="modal__box-desc">
+                    <div v-bind:class="risksopost[1]" id="modal-risk"> {{ risksopost[0] }}</div>
+                    <div class="modal__box-desc--item"><span>Процент сходства:</span> {{ worldpercent }}</div>
+                    <div class="modal__box-desc--item"><span>Статус:</span> {{ selectedindex.subtitle }}</div>
+                    <div class="modal__box-desc--item"><span>Дата подачи заявки:</span> {{ selectedindex.send_date
+                        }}
+                    </div>
+                    <div class="modal__box-desc--item"><span>Дата регистрации:</span> {{
+                            selectedindex.register_date }}
+                    </div>
+                    <div class="modal__box-desc--item"><span>Дата публикации:</span> {{ selectedindex.publish_date
+                        }}
+                    </div>
+                    <div class="modal__box-desc--item"><span>Срок действия:</span> {{ selectedindex.expired_date }}
+                    </div>
+                </div>
+            </div>
+            <div class="modal__adress" id="modal-adress"> Правообладатель: {{ selectedindex.address }}</div>
+            <div class="modal__nondef" id="modal__nondefinfo"> Неохраняемые элементы: <span>{{
+                    selectedindex.unsecured_elements }}</span></div>
+            <div class="modal__class">
+                <div class="modal__class-header">
+                    <div class="modal__class-head--number">
+                        <div class="modal__class-head"> Классы МКТУ:</div>
+                        <div class="modal__class-head-wrapper">
+                            <div v-for="mktuclass in selectedindex.mktu">
+                                <button class="modal__class-head--number--item" v-on:click="showmktuinfo(mktuclass)"> {{
+                                        mktuclass.mktu_number }}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal__class-allnumb" v-if="mktuselectname.length > 0">
+                        <a class="modal__class-head--number--items"> {{ mktuselectname }} </a>
+                        <div class="modal__class-head--number-item">
+                            {{ mktuselectinfo }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="blur off" id="blurscreen"></div>
+    </div>
+    <section class="search">
+        <div class="container" style="margin-left: 45px;">
+            <a class="burger" onclick="showburgermenu();">
+                <span class="burger__line-big"> </span>
+                <span class="burger__line-small"> </span>
+                <span class="burger__line-big"> </span>
+            </a>
+            <nav class="menu-mob" style="display: none;" id="burgermenu">
+                <div class="menu-mob-flex">
+                    <a href="" class="menu_item"> Услуги </a>
+                    <a href="" class="menu_item"> Акции </a>
+                    <a href="" class="menu_item"> О компании </a>
+                    <a href="" class="menu_item"> Отзывы и кейсы </a>
+                    <a href="" class="menu_item"> Новости </a>
+                    <a href="" class="menu_item">Контакты</a>
+                    <a class="modal__head-exit" onclick="closeburgermenu();"> </a>
+                </div>
+            </nav>
+            <div class="search__head">
+                <a href="#" class="search__head-logo--box">
+                    <a href="#" class="search__head-logo">
+                        <img src="images/logo/logo2.png">
+                    </a>
+                </a>
+                <div class="search__head-box">
+                    <a href="#" class="search__head-box--item"> Услуги </a>
+                    <a href="#" class="search__head-box--item"> Акции </a>
+                    <a href="#" class="search__head-box--item"> О компании </a>
+                    <a href="#" class="search__head-box--item"> Отзывы и кейсы </a>
+                    <a href="#" class="search__head-box--item"> Новости </a>
+                    <a href="#" class="search__head-box--item"> Контакты </a>
+                </div>
+                <div class="search__head-call">
+                    <div class="search__head-call--img"><img src="images/icons/whatsapp.png"> <span
+                            class="search__head-call--number"> 8 (968) 477 48 16 </span></div>
+                    <div class="search__head-call--btn"> Заказать звонок</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="main" id="main">
+        <!--			<div class="back"></div>-->
+        <div class="container" id="container2">
+            <div class="main__title">
+                <div class="main__title1"> Бесплатная онлайн-проверка товарного знака</div>
+                <div class="main__title2"> по базам роспатента</div>
+            </div>
+
+        </div>
+        <div class="s">
+            <div class="small-container">
+
+
+                <div class="main__search">
+                    <form class="main__search-box" @submit.prevent="createServer">
+                        <input class="main__search-box--line" type="text" v-model="query" id="searchline"
+                               placeholder="Введите наименование">
+                        <button type="submit" class="main__search-box--sub" id="searchsub"> Узнать
+                            результат проверки
+                        </button>
+                    </form>
+                </div>
+                <form class="main__search-filter--box">
+                    <div class="flex">
+                        <a href="#" type="button" class="main__search-box--filter" id="filter-btn" v-on:click="noshow">
+                            Указать
+                            сферу
+                            деятельности </a>
+                        <div class="number__script" id="dellnumber">
+                            <a href="#" class="number__script-item"
+                               v-for="mktuseleted in selectedmktuindexes.split(',').slice(0,-1)"
+                               v-if="selectedmktuindexes.split(',').slice(0,-1).length != 0"
+                               v-on:click="removeselectmktu(mktuseleted);"> <span class="down"> {{ mktuseleted }}
+									</span> </a>
+                        </div>
+                    </div>
+                    <input type="text" id="searchclass" class="main__search-box--filter--search  no-show"
+                           placeholder="Например, одежда или 25" v-bind:value="mktuquery"
+                           v-on:input="changekmtuselector">
+                    <ul class="main__search-box--filter--ul no-show" id="filter">
+
+                        <div v-if="mktuquery.length == 0">
+                            <a href="#" class="link" v-for="mktuindex in allmktuindexes"
+                               v-on:click="selectmktu(mktuindex.index);" v-on:click.prevent="doThat">
+									<span class="ul-number">
+									{{mktuindex.index}}
+									</span>
+                                <li class="main__search-box--filter--ul--item">
+                                    <div v-for="mktuindexdesc in mktuindex.desc.split('; ')"> {{
+                                            ("- " + mktuindexdesc.charAt(0).toUpperCase() + mktuindexdesc.slice(1) +
+                                                    ";").replace(".;", ".") }}
+                                    </div>
+                                </li>
+                            </a>
+                        </div>
+                        <div v-else>
+                            <a href="#" class="link" v-for="mktuindex2 in sortedmktuindexes"
+                               v-on:click="selectmktu(mktuindex2.index);"> <span class="ul-number"> {{
+                                    mktuindex2.index }} </span>
+                                <li class="main__search-box--filter--ul--item">
+                                    <div v-for="mktuindexdesc in mktuindex2.desc.split('; ')">
+                                        {{
+                                            ("- " + mktuindexdesc.charAt(0).toUpperCase() + mktuindexdesc.slice(1) +
+                                                    ";").replace(".;", ".") }}
+                                    </div>
+                                </li>
+                            </a>
+                        </div>
+            </div>
+            </ul>
+            </form>
+        </div>
+        <div class="chance" v-if="results.length > 0">
+            <div class="chance__header">
+                <div class="chance__head"> Вероятность регистрации</div>
+            </div>
+            <div class="chance__box" v-if="worldpercent >= 70">
+                <a class="chance__box-red red-light" id="lowselectlaw" onclick="lawandnotlaw(1);"> Низкая </a>
+                <a class="chance__box-green" id="highselectlaw" onclick="lawandnotlaw(3);"> Высокая с
+                    КиберПраво</a>
+            </div>
+            <div class="chance__box" v-else>
+                <a class="chance__box-orange orange-light" id="middleselectlaw" onclick="lawandnotlaw(2);">
+                    Средняя </a>
+                <a class="chance__box-green" id="highselectlaw" onclick="lawandnotlaw(3);"> Высокая с
+                    КиберПраво</a>
+            </div>
+            <div class="chance__numbers">
+                <div class="chance__number-item" id="hiddensmile1">
+                    <div class="chance__number-item--smile" v-if="results.length > 4"><img src="images/decor/sad.png">
+                    </div>
+                    <div class="chance__number-item--smile" v-else><img src="images/decor/fifty.png"></div>
+                    <div class="chance__number-box">
+                        <div class="chance__number-item--search"> Найдены сходные товарные знаки:</div>
+                        <div class="chance__number-item--search--bad"> {{ totalfound }} шт</div>
+                    </div>
+                </div>
+                <div class="chancenumber-item hidden" id="hiddensmile2">
+                    <div class="chancenumber-item--smile"><img src="images/decor/smile.png"></div>
+                    <div class="chancenumber-box">
+                        <div class="chancenumber-item--searchs"><span class="mm"> <img
+                                src="images/icons/gal.png"> </span>
+                            доработаем наименование;
+                        </div>
+                        <div class="chancenumber-item--searchs"><span class="mm"> <img
+                                src="images/icons/gal.png"> </span>
+                            разработаем логотип;
+                        </div>
+                        <div class="chancenumber-item--searchs"><span class="mm"> <img
+                                src="images/icons/gal.png"> </span>
+                            обойдем все препятствия;
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="chance__register">
+                <a href="#" class="chance__register-btn"> Зарегистрируйте товарный знак </a>
+                <div class="chance__register-desc"> Приоритет на товарный знак в день подачи</div>
+            </div>
+            <div class="chance__find-desc"> Найденные товарные знаки:</div>
+            <div class="chance__find">
+                <div class="chance__find-box" v-for="result in results">
+
+                    <a class="chance__find-box--item" onclick="showinfowindow();"
+                       v-on:click="showinfo( result.id, result.img, result.index, result.mktu, result.name);">
+                        <div class="chance__find-box--item--square--mark">
+                            <div class="chance__find-box--item--square">
+                                <div class="right">
+										<span class="mark-g" v-if="risksopost[0] == 'Низкий риск сопоставления'">
+										</span>
+                                    <span class="mark-g" v-if="risksopost[0] == 'Низкий риск сопоставления'">
+										</span>
+                                    <span class="mark-g" v-if="risksopost[0] == 'Низкий риск сопоставления'">
+										</span>
+                                    <span class="mark-r" v-if="risksopost[0] == 'Высокий риск сопоставления'">
+										</span>
+                                    <span class="mark-r" v-if="risksopost[0] == 'Высокий риск сопоставления'">
+										</span>
+                                    <span class="mark-r" v-if="risksopost[0] == 'Высокий риск сопоставления'">
+										</span>
+                                    <span class="mark-o" v-if="risksopost[0] == 'Средний риск сопоставления'">
+										</span>
+                                    <span class="mark-o" v-if="risksopost[0] == 'Средний риск сопоставления'">
+										</span>
+                                    <span class="mark-o" v-if="risksopost[0] == 'Средний риск сопоставления'">
+										</span>
+                                </div>
+                                <!-- Место для вставки картинки -->
+                                <div class="chance__find-box--item-img">
+                                    <img v-bind:src="result.img">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chance__find-box--item-name"> {{ result.name.replaceAt(18) }}</div>
+                        <div class="chance__find-box--item-number"> Товарный знак №{{ result.index }}</div>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+        <div v-if="noregproblems">
+            <div class="chance__register-no"> Поздравляем!
+                Препятствий для регистрации нет, у Вас уникальное обозначение.
+            </div>
+            <div class="chance__register">
+                <a href="#" class="chance__register-btn"> Зарегистрируйте товарный знак </a>
+                <div class="chance__register-desc"> Приоритет на товарный знак в день подачи</div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="main" id="main-mob">
+        <modal class="modalSearchMKT-mob" style="display: none;" id="modalSearchMKT">
+            <a class="modal__head-exit" id="modalCloseIcon" onclick="noshow1()"> </a>
+            <span class="modalTitle">Вид деятельности:</span>
+            <input type="text" id="searchclass1" class="main__search-box--filter--search"
+                   placeholder="Например, одежда или 25" v-bind:value="mktuquery" v-on:input="changekmtuselector">
+
+
+            <ul class="main__search-box--filter--ul " id="filter">
+                <div v-if="mktuquery.length == 0">
+                    <a href="#" class="link" v-for="mktuindex in allmktuindexes"
+                       v-on:click="selectmktu(mktuindex.index);" v-on:click.prevent="doThat">
+									<span class="ul-number">
+									{{mktuindex.index}}
+									</span>
+                        <li class="main__search-box--filter--ul--item">
+                            <div v-for="mktuindexdesc in mktuindex.desc.split('; ')"> {{
+                                    ("- " + mktuindexdesc.charAt(0).toUpperCase() + mktuindexdesc.slice(1) +
+                                            ";").replace(".;", ".") }}
+                            </div>
+                        </li>
+                    </a>
+                </div>
+                <div v-else>
+                    <a href="#" class="link" v-for="mktuindex2 in sortedmktuindexes"
+                       v-on:click="selectmktu(mktuindex2.index);"> <span class="ul-number"> {{
+                            mktuindex2.index }} </span>
+                        <li class="main__search-box--filter--ul--item">
+                            <div v-for="mktuindexdesc in mktuindex2.desc.split('; ')">
+                                {{
+                                    ("- " + mktuindexdesc.charAt(0).toUpperCase() + mktuindexdesc.slice(1) +
+                                            ";").replace(".;", ".") }}
+                            </div>
+                        </li>
+                    </a>
+                </div>
+
+            </ul>
+            <a href="#" type="button" class="main__search-box--filter" id="filter-btn-mob1" onclick="noshow1()">
+                Выбрать </a>
+
+        </modal>
+
+
+        <div class="container-mob">
+            <div class="main__title-mob">
+                <div class="main__title1-mob"> Бесплатная онлайн-проверка товарного знака</div>
+                <div class="main__title2-mob"> по базам роспатента</div>
+            </div>
+
+        </div>
+        <div class="s">
+            <div class="small-container">
+
+
+                <div class="main__search">
+                    <div class="main__search-box" @submit.prevent="createServer">
+                        <input class="main__search-box--line" type="text" v-model="query" id="searchline"
+                               placeholder="Введите наименование">
+
+                        <form class="main__search-filter--box">
+                            <div class="flex">
+                                <a href="#" type="button" class="main__search-box--filter" id="filter-btn-mob"
+                                   v-on:click="noshow"> Указать
+                                    сферу
+                                    деятельности </a>
+                                <div class="number__script" id="dellnumber">
+                                    <a href="#" class="number__script-item"
+                                       v-for="mktuseleted in selectedmktuindexes.split(',').slice(0,-1)"
+                                       v-if="selectedmktuindexes.split(',').slice(0,-1).length != 0"
+                                       v-on:click="removeselectmktu(mktuseleted);"> <span class="down"> {{ mktuseleted
+                                        }}
+									</span> </a>
+                                </div>
+                            </div>
+                        </form>
+
+                        <form class="main__search-box" @submit.prevent="createServer">
+                        <button type="submit" class="main__search-box--sub" id="searchsub1"> Узнать
+                            результат проверки
+                        </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            </ul>
+        </div>
+        <div class="chance" v-if="results.length > 0">
+            <div class="chance__header">
+                <div class="chance__head"> Вероятность регистрации</div>
+            </div>
+            <div class="chance__box" v-if="worldpercent >= 70">
+                <a class="chance__box-red red-light" id="lowselectlaw" onclick="lawandnotlaw(1);"> Низкая </a>
+                <a class="chance__box-green" id="highselectlaw" onclick="lawandnotlaw(3);"> Высокая с
+                    КиберПраво</a>
+            </div>
+            <div class="chance__box" v-else>
+                <a class="chance__box-orange orange-light" id="middleselectlaw" onclick="lawandnotlaw(2);">
+                    Средняя </a>
+                <a class="chance__box-green" id="highselectlaw" onclick="lawandnotlaw(3);"> Высокая с
+                    КиберПраво</a>
+            </div>
+            <div class="chance__numbers">
+                <div class="chance__number-item" id="hiddensmile1">
+                    <div class="chance__number-item--smile" v-if="results.length > 4"><img src="images/decor/sad.png">
+                    </div>
+                    <div class="chance__number-item--smile" v-else><img src="images/decor/fifty.png"></div>
+                    <div class="chance__number-box">
+                        <div class="chance__number-item--search"> Найдены сходные товарные знаки:</div>
+                        <div class="chance__number-item--search--bad"> {{ totalfound }} шт</div>
+                    </div>
+                </div>
+                <div class="chancenumber-item hidden" id="hiddensmile2">
+                    <div class="chancenumber-item--smile"><img src="images/decor/smile.png"></div>
+                    <div class="chancenumber-box">
+                        <div class="chancenumber-item--searchs"><span class="mm"> <img
+                                src="images/icons/gal.png"> </span>
+                            доработаем наименование;
+                        </div>
+                        <div class="chancenumber-item--searchs"><span class="mm"> <img
+                                src="images/icons/gal.png"> </span>
+                            разработаем логотип;
+                        </div>
+                        <div class="chancenumber-item--searchs"><span class="mm"> <img
+                                src="images/icons/gal.png"> </span>
+                            обойдем все препятствия;
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="chance__register">
+                <a href="#" class="chance__register-btn"> Зарегистрируйте товарный знак </a>
+                <div class="chance__register-desc"> Приоритет на товарный знак в день подачи</div>
+            </div>
+            <div class="chance__find-desc"> Найденные товарные знаки:</div>
+            <div class="chance__find">
+                <div class="chance__find-box" v-for="result in results">
+
+                    <a class="chance__find-box--item" onclick="showinfowindow();"
+                       v-on:click="showinfo( result.id, result.img, result.index, result.mktu, result.name);">
+                        <div class="chance__find-box--item--square--mark">
+                            <div class="chance__find-box--item--square">
+                                <div class="right">
+										<span class="mark-g" v-if="risksopost[0] == 'Низкий риск сопоставления'">
+										</span>
+                                    <span class="mark-g" v-if="risksopost[0] == 'Низкий риск сопоставления'">
+										</span>
+                                    <span class="mark-g" v-if="risksopost[0] == 'Низкий риск сопоставления'">
+										</span>
+                                    <span class="mark-r" v-if="risksopost[0] == 'Высокий риск сопоставления'">
+										</span>
+                                    <span class="mark-r" v-if="risksopost[0] == 'Высокий риск сопоставления'">
+										</span>
+                                    <span class="mark-r" v-if="risksopost[0] == 'Высокий риск сопоставления'">
+										</span>
+                                    <span class="mark-o" v-if="risksopost[0] == 'Средний риск сопоставления'">
+										</span>
+                                    <span class="mark-o" v-if="risksopost[0] == 'Средний риск сопоставления'">
+										</span>
+                                    <span class="mark-o" v-if="risksopost[0] == 'Средний риск сопоставления'">
+										</span>
+                                </div>
+                                <!-- Место для вставки картинки -->
+                                <div class="chance__find-box--item-img">
+                                    <img v-bind:src="result.img">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chance__find-box--item-name"> {{ result.name.replaceAt(18) }}</div>
+                        <div class="chance__find-box--item-number"> Товарный знак №{{ result.index }}</div>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+        <div v-if="noregproblems">
+            <div class="chance__register-no"> Поздравляем!
+                Препятствий для регистрации нет, у Вас уникальное обозначение.
+            </div>
+            <div class="chance__register">
+                <a href="#" class="chance__register-btn"> Зарегистрируйте товарный знак </a>
+                <div class="chance__register-desc"> Приоритет на товарный знак в день подачи</div>
+            </div>
+        </div>
+    </section>
+
+
+</div>
+</body>
+<script src="js/index.js"></script>
+<script src="https://unpkg.com/vue@3.2.36"></script>
+<script src="app.js"></script>
+
+</html>
