@@ -597,6 +597,9 @@
 .chance__numbers {
     display: flex;
     justify-content: center;
+    /*align-items: flex-end;*/
+    height: 205px;
+
 }
 
 .chance__number-item {
@@ -881,7 +884,7 @@
 }
 
 .modal__head {
-    margin-top: 35px;
+    /*margin-top: 35px;*/
     margin-left: 51px;
     font-family: "Mulish", sans-serif;
     font-style: normal;
@@ -986,8 +989,9 @@
 }
 
 #modal__nondefinfo {
-    margin-left: 45px;
-    margin-top: 33px;
+    /*margin-left: 45px;*/
+    /*margin-top: 33px;*/
+    margin: 33px 5px 35px 45px;
     font-family: "Mulish", sans-serif;
     font-weight: 700;
     font-size: 20px;
@@ -1000,8 +1004,9 @@
 }
 
 .modal__class-head {
-    margin-top: 41px;
-    margin-left: 43px;
+    /*margin-top: 41px;*/
+    /*width: 200px;*/
+    margin-left: 45px;
     font-family: "Play", sans-serif;
     font-weight: 700;
     font-size: 20px;
@@ -1011,8 +1016,8 @@
 
 .modal__class-head-wrapper {
     display: flex;
-    margin-left: 42px;
-    padding-bottom: 10px;
+    margin-left: 15px;
+    /*padding-bottom: 10px;*/
     flex-wrap: wrap;
     margin-right: 26px;
     gap: 10px;
@@ -1020,10 +1025,11 @@
 
 .modal__class-head--number {
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    gap: 10px;
-    flex-wrap: wrap;
+    align-items: center;
+    /*flex-direction: column;*/
+    /*justify-content: flex-end;*/
+    /*gap: 10px;*/
+    /*flex-wrap: wrap;*/
 }
 
 .modal__class-head--number--item,
@@ -1045,13 +1051,13 @@
 .modal__class-allnumb {
     display: flex;
     margin-left: 40px;
-    align-items: center;
+    /*align-items: center;*/
 }
 
 .modal__class-head--number-item {
     display: flex;
     max-width: 621px;
-    height: 65px;
+    height: 100px;
     margin-top: 15px;
     overflow: auto;
     margin-bottom: 15px;
@@ -1143,13 +1149,18 @@
     }
 
     .chance__box {
-        flex-direction: column;
+        /*flex-direction: column;*/
+        margin-top: 30px;
     }
 
     .chance__number-item {
-        flex-direction: column;
-        margin-left: 0;
+        /*flex-direction: column;*/
+        /*margin-left: 0;*/
         align-items: center;
+    }
+
+    .chance__number-box {
+        margin-left: 30px;
     }
 
     .chance__number-item--search {
@@ -1387,7 +1398,132 @@
         text-transform: uppercase;
         color: #343434;
     }
+
+    .chance__head {
+        font-family: "Play", sans-serif;
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 34.71px;
+        text-align: center;
+        color: #1e1e1e;
+    }
+
+    .chance__number-item--smile img {
+        width: 105px;
+    }
+
+    .chance__number-item--search {
+        font-size: 20px;
+        line-height: 23px;
+        width: 180px;
+    }
+    .chance__register-btn {
+        font-size: 20px;
+        padding: 5px 5px;
+        margin: 10px 0px;
+    }
+    .chance__register-desc {
+        font-size: 14px;
+    }
+
+    .chance__find-desc{
+        text-align: center;
+        margin: 80px 10px 5px 0;
+    }
+    .chance__find-box{
+        margin: 0;
+    }
+    #modalo1 {
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
 }
+
+    #modal-risk1{
+    width: 90%;
+    height: 60.59px;
+    /* left: 18px; */
+    /* top: 45px; */
+    font-family: 'Play';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 148.7%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.01em;
+    color: #D82E18;
+}
+    .mobModalBlock {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .modal__box-img--img {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        width: 180px;
+        /* height: 100%; */
+    }
+    .modal__box {
+        margin: 30px 20px;
+        display: flex;
+    }
+    .modal__box-img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 120px;
+        height: 120px;
+    }
+    .modal__box-img img{
+        width: 100px;
+    }
+
+    .modal__head {
+        /* margin-top: 35px; */
+        margin-left: 20px;
+        /*font-family: "Mulish", sans-serif;*/
+        /*font-style: normal;*/
+        /*font-weight: 400;*/
+        font-size: 16px;
+        /*line-height: 140.5%;*/
+        /*letter-spacing: 0.01em;*/
+        /*color: #000000;*/
+    }
+    .modal__head-name {
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 15px;
+        line-height: 19px;
+        margin: 10px 20px;
+    }
+    .modal__box-desc--item1{
+
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 20px;
+        color: #000000;
+        margin-left: 20px;
+        /*text-align: center;*/
+    }
+
+
+
+    .modal__box-desc {
+        font-family: 'Mulish';
+        /* font-style: normal; */
+        /* font-weight: 700; */
+        font-size: 16px;
+        line-height: 20px;
+        margin-top: 20px;
+    }
+    }
 
 
 .s {
@@ -1406,8 +1542,26 @@
 }
 
 @media (max-width: 500px) {
-    .chance__box-red {
-        min-width: 180px;
+    .chance__box-red, .chance__box-green, .chance__box-orange {
+        min-width: 154px;
+        width: 154px;
+        height: 56px;
+        font-family: "Play", sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 23px;
+        align-items: center;
+        text-align: center;
+        margin-right: 0;
+    }
+
+    .chance__box-red, .chance__box-orange {
+        padding-top: 15px;
+    }
+
+    .chance__box-green {
+        padding-top: 3px;
     }
 
     .chancenumber-item--searchs {
@@ -1474,3 +1628,5 @@
     color: #343434;
     background: #F3F6FF;
 }
+
+

@@ -49,12 +49,31 @@ if (document.documentElement.clientWidth <= 1000) {
 
 function showinfowindow() {
    var container = document.getElementById('modalo');
-   var blur = document.getElementById('blurscreen'); 
-   container.classList.remove("off");
-   blur.classList.remove("off");
+   var container1 = document.getElementById('modalo1');
+   var blur = document.getElementById('blurscreen');
+   if(window.screen.width > 600) {
+       container.classList.remove("off");
+       blur.classList.remove("off");
+   } else {
+       container1.classList.remove("off");
+       blur.classList.remove("off");
+   }
 }
 
+
 function closeinfowindow() {
+    var container = document.getElementById('modalo');
+    var container1 = document.getElementById('modalo1');
+    var blur = document.getElementById('blurscreen');
+    if(window.screen.width > 600) {
+        container.classList.add("off");
+        blur.classList.add("off");
+    } else {
+        container1.classList.add("off");
+        blur.classList.add("off");
+    }
+    }
+function closeinfowindow1() {
     var container = document.getElementById('modalo');
     var blur = document.getElementById('blurscreen');
         container.classList.add("off");

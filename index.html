@@ -37,7 +37,7 @@
                 </div>
                 <div class="modal__box-desc">
                     <div v-bind:class="risksopost[1]" id="modal-risk"> {{ risksopost[0] }}</div>
-                    <div class="modal__box-desc--item"><span>Процент сходства:</span> {{ worldpercent }}</div>
+                    <div class="modal__box-desc--item"><span>Процент сходства:</span> {{ worldpercent }}%</div>
                     <div class="modal__box-desc--item"><span>Статус:</span> {{ selectedindex.subtitle }}</div>
                     <div class="modal__box-desc--item"><span>Дата подачи заявки:</span> {{ selectedindex.send_date
                         }}
@@ -62,6 +62,71 @@
                         <div class="modal__class-head-wrapper">
                             <div v-for="mktuclass in selectedindex.mktu">
                                 <button class="modal__class-head--number--item" v-on:click="showmktuinfo(mktuclass)"> {{
+                                        mktuclass.mktu_number }}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal__class-allnumb" v-if="mktuselectname.length > 0">
+                        <a class="modal__class-head--number--items"> {{ mktuselectname }} </a>
+                        <div class="modal__class-head--number-item">
+                            {{ mktuselectinfo }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal off" id="modalo1">
+            <span class="modal__exit"> </span>
+            <div class="flex1">
+                <a onclick="closeinfowindow()" class="modal__head-exit"> </a>
+            </div>
+            <div v-bind:class="risksopost[1]" id="modal-risk1"> {{ risksopost[0] }}</div>
+
+            <div class="modal__box">
+                <div class="mobModalBlock">
+                    <div class="modal__box-img">
+                        <img v-bind:src="selectedindex.image">
+                    </div>
+
+                    <div class="modal__box-img--img">
+
+                        <div class="modal__head">
+                            {{ selectedindex.main_title }}
+                        </div>
+                        <div class="modal__head-name"> {{ selectedname }}</div>
+                        <div class="modal__box-desc--item1"><span>Процент сходства:</span> {{ worldpercent }}%</div>
+                    </div>
+                </div>
+
+                <div class="modal__box-desc">
+
+
+                    <div class="modal__box-desc--item"><span>Статус:</span> {{ selectedindex.subtitle }}</div>
+                    <div class="modal__box-desc--item"><span>Дата подачи заявки:</span> {{ selectedindex.send_date
+                        }}
+                    </div>
+                    <div class="modal__box-desc--item"><span>Дата регистрации:</span> {{
+                            selectedindex.register_date }}
+                    </div>
+                    <div class="modal__box-desc--item"><span>Дата публикации:</span> {{ selectedindex.publish_date
+                        }}
+                    </div>
+                    <div class="modal__box-desc--item"><span>Срок действия:</span> {{ selectedindex.expired_date }}
+                    </div>
+                </div>
+            </div>
+            <div class="modal__adress" id="modal-adress1"> Правообладатель: {{ selectedindex.address }}</div>
+            <div class="modal__nondef" id="modal__nondefinfo1"> Неохраняемые элементы: <span>{{
+                    selectedindex.unsecured_elements }}</span></div>
+            <div class="modal__class">
+                <div class="modal__class-header">
+                    <div class="modal__class-head--number">
+                        <div class="modal__class-head"> Классы МКТУ:</div>
+                        <div class="modal__class-head-wrapper">
+                            <div v-for="mktuclass in selectedindex.mktu">
+                                <button class="modal__class-head--number--item"
+                                        v-on:click="showmktuinfo(mktuclass)"> {{
                                         mktuclass.mktu_number }}
                                 </button>
                             </div>
@@ -131,7 +196,6 @@
             <div class="small-container">
 
 
-
                 <div class="main__search">
                     <form class="main__search-box" @submit.prevent="createServer">
                         <input class="main__search-box--line" type="text" v-model="query" id="searchline"
@@ -143,7 +207,8 @@
                 </div>
                 <form class="main__search-filter--box">
                     <div class="flex">
-                        <a href="#" type="button" class="main__search-box--filter" id="filter-btn" v-on:click="noshow">
+                        <a href="#" type="button" class="main__search-box--filter" id="filter-btn"
+                           v-on:click="noshow">
                             Указать
                             сферу
                             деятельности </a>
@@ -208,7 +273,8 @@
             </div>
             <div class="chance__numbers">
                 <div class="chance__number-item" id="hiddensmile1">
-                    <div class="chance__number-item--smile" v-if="results.length > 4"><img src="images/decor/sad.png">
+                    <div class="chance__number-item--smile" v-if="results.length > 4"><img
+                            src="images/decor/sad.png">
                     </div>
                     <div class="chance__number-item--smile" v-else><img src="images/decor/fifty.png"></div>
                     <div class="chance__number-box">
@@ -242,7 +308,7 @@
             <div class="chance__find">
                 <div class="chance__find-box" v-for="result in results">
 
-                    <a class="chance__find-box--item" onclick="showinfowindow();"
+                    <a class="chance__find-box--item" onclick="showinfowindow()"
                        v-on:click="showinfo( result.id, result.img, result.index, result.mktu, result.name);">
                         <div class="chance__find-box--item--square--mark">
                             <div class="chance__find-box--item--square">
@@ -361,7 +427,8 @@
                                     <a href="#" class="number__script-item"
                                        v-for="mktuseleted in selectedmktuindexes.split(',').slice(0,-1)"
                                        v-if="selectedmktuindexes.split(',').slice(0,-1).length != 0"
-                                       v-on:click="removeselectmktu(mktuseleted);"> <span class="down"> {{ mktuseleted
+                                       v-on:click="removeselectmktu(mktuseleted);"> <span
+                                            class="down"> {{ mktuseleted
                                         }}
 									</span> </a>
                                 </div>
@@ -369,9 +436,9 @@
                         </form>
 
                         <form class="main__search-box" @submit.prevent="createServer">
-                        <button type="submit" class="main__search-box--sub" id="searchsub1"> Узнать
-                            результат проверки
-                        </button>
+                            <button type="submit" class="main__search-box--sub" id="searchsub1"> Узнать
+                                результат проверки
+                            </button>
                         </form>
                     </div>
                 </div>
@@ -395,7 +462,8 @@
             </div>
             <div class="chance__numbers">
                 <div class="chance__number-item" id="hiddensmile1">
-                    <div class="chance__number-item--smile" v-if="results.length > 4"><img src="images/decor/sad.png">
+                    <div class="chance__number-item--smile" v-if="results.length > 4"><img
+                            src="images/decor/sad.png">
                     </div>
                     <div class="chance__number-item--smile" v-else><img src="images/decor/fifty.png"></div>
                     <div class="chance__number-box">
