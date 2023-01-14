@@ -1417,49 +1417,55 @@
         line-height: 23px;
         width: 180px;
     }
+
     .chance__register-btn {
         font-size: 20px;
         padding: 5px 5px;
         margin: 10px 0px;
     }
+
     .chance__register-desc {
         font-size: 14px;
     }
 
-    .chance__find-desc{
+    .chance__find-desc {
         text-align: center;
         margin: 80px 10px 5px 0;
     }
-    .chance__find-box{
+
+    .chance__find-box {
         margin: 0;
     }
-    #modalo1 {
-    width: 100vw;
-    height: 100vh;
-    left: 0;
-    top: 0;
-}
 
-    #modal-risk1{
-    width: 90%;
-    height: 60.59px;
-    /* left: 18px; */
-    /* top: 45px; */
-    font-family: 'Play';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 148.7%;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    letter-spacing: 0.01em;
-    color: #D82E18;
-}
+    #modalo1 {
+        width: 100vw;
+        height: 100vh;
+        left: 0;
+        top: 0;
+    }
+
+    #modal-risk1 {
+        width: 90%;
+        height: 60.59px;
+        /* left: 18px; */
+        /* top: 45px; */
+        font-family: 'Play';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 148.7%;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        letter-spacing: 0.01em;
+        color: #D82E18;
+    }
+
     .mobModalBlock {
         display: flex;
         flex-wrap: wrap;
     }
+
     .modal__box-img--img {
         display: flex;
         flex-wrap: wrap;
@@ -1467,10 +1473,12 @@
         width: 180px;
         /* height: 100%; */
     }
+
     .modal__box {
-        margin: 30px 20px;
+        margin: 30px 20px 0 20px;
         display: flex;
     }
+
     .modal__box-img {
         display: flex;
         justify-content: center;
@@ -1478,7 +1486,8 @@
         width: 120px;
         height: 120px;
     }
-    .modal__box-img img{
+
+    .modal__box-img img {
         width: 100px;
     }
 
@@ -1493,6 +1502,7 @@
         /*letter-spacing: 0.01em;*/
         /*color: #000000;*/
     }
+
     .modal__head-name {
         font-family: 'Mulish';
         font-style: normal;
@@ -1501,7 +1511,8 @@
         line-height: 19px;
         margin: 10px 20px;
     }
-    .modal__box-desc--item1{
+
+    .modal__box-desc--item1 {
 
         font-family: 'Mulish';
         font-style: normal;
@@ -1514,7 +1525,6 @@
     }
 
 
-
     .modal__box-desc {
         font-family: 'Mulish';
         /* font-style: normal; */
@@ -1523,8 +1533,49 @@
         line-height: 20px;
         margin-top: 20px;
     }
+
+    .modal__adress, .modal__nondef {
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 20px;
+        width: 300px;
+        color: #000000;
+        margin: 0 10px 20px 20px;
     }
 
+    .modal__adress span, .modal__nondef span {
+        font-weight: normal;
+    }
+
+    .modal__class-head {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 20px;
+        color: #000000;
+        width: 75%;
+        margin-left: 20px;
+    }
+
+    .modal__class-allnumb {
+        display: flex;
+        margin-left: 20px;
+        /* align-items: center; */
+    }
+
+    .modal__class-head--number--items {
+        margin-top: 15px;
+        margin-right: 10px;
+    }
+    .modal__class-head--number--item, .modal__class-head--number--items {
+        height: 20px;
+        width: 20px;
+    }
+
+
+}
 
 .s {
     display: flex;
