@@ -325,10 +325,11 @@ const Search = {
                 //
                 //     }
 
-
+                document.querySelector('.main__search').style.cssText = "top:230px;"
                 element.classList.remove("no-show");
                 searchclass.classList.remove("no-show");
                 container.style.cssText = `top:112px;`
+
 
             } else {
                 // if (window.screen.width < 600) {
@@ -367,6 +368,9 @@ const Search = {
                 element.classList.add("no-show");
                 searchclass.classList.add("no-show");
                 container.style.cssText = `top:0;`
+                // alert('dxd22')
+                document.querySelector('.main__search').style.cssText = "top:0;"
+                document.documentElement.scrollTop = 0;
 
             }
 

@@ -598,7 +598,7 @@
     display: flex;
     justify-content: center;
     /*align-items: flex-end;*/
-    height: 205px;
+    height: 235px;
 
 }
 
@@ -687,6 +687,7 @@
 }
 
 .chance__register-desc {
+    margin-top: 5px;
     font-family: "Play", sans-serif;
     font-weight: 700;
     font-size: 16px;
@@ -1064,13 +1065,19 @@
     /* align-items: center */
 }
 
-.hidden {
-    visibility: hidden;
-}
+/*.hidden {*/
+/*    visibility: hidden;*/
+/*}*/
 
 .chancenumber-item {
     display: flex;
     margin-top: 20px;
+}
+#hiddensmile2{
+    display: none;
+}
+#hiddensmile12{
+    display: none;
 }
 
 .chancenumber-item--smile {
@@ -1168,7 +1175,7 @@
     }
 
     .chancenumber-item {
-        flex-direction: column;
+        /*flex-direction: column;*/
         align-items: center;
     }
 
@@ -1200,13 +1207,29 @@
         display: none;
     }
 
-    .chance__box-green {
-        font-size: 26px;
-    }
+    /*.chance__box-green {*/
+    /*    font-size: 26px;*/
+    /*}*/
 
-    .chance__box-red {
-        font-size: 26px;
-        min-width: 274px;
+    /*.chance__box-red {*/
+    /*    font-size: 26px;*/
+    /*    min-width: 274px;*/
+    /*}*/
+    .chance__box-red, .chance__box-green, .chance__box-orange {
+        min-width: 154px;
+        width: 190px;
+        height: 63px;
+        font-family: "Play", sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 23px;
+        align-items: center;
+        text-align: center;
+        margin-right: 0;
+    }
+    .chance__box-red, .chance__box-orange {
+        padding-top: 15px;
     }
 }
 
@@ -1254,6 +1277,9 @@
 }
 
 @media (max-width: 600px) {
+    /*.chance__box-red, .chance__box-orange {*/
+    /*    padding-top: 15px;*/
+    /*}*/
     #main {
         display: none;
     }
@@ -1569,13 +1595,66 @@
         margin-top: 15px;
         margin-right: 10px;
     }
-    .modal__class-head--number--item, .modal__class-head--number--items {
+
+    .modal__class-head--number--item, .modal__class-head--number--items, #cirItem,#cirItem1 {
         height: 20px;
         width: 20px;
     }
 
+    .chance__numbers {
+        flex-wrap: wrap;
+        height: auto;
+    }
+
+    .chance__number-item {
+        display: flex;
+        margin-top: 10px;
+        margin-left: 0;
+        height: 193px;
+    }
+
+    .chance__register-no {
+        font-size: 26px;
+        line-height: 24px;
+        padding: 0px 62px;
+    }
+    .chance__number-item--searchs:first-child {
+        margin-top: 10px;
+    }
+    .chance__number-item--searchs {
+        margin-left: 15px;
+        margin-bottom: 15px;
+        font-size: 20px;
+        line-height: 23px;
+
+    }
+    .smileMob{
+        margin-left: 20px;
+        margin-bottom: 30px;
+    }
+    .chance__box-red, .chance__box-green, .chance__box-orange {
+        min-width: 154px;
+        width: 154px;
+        height: 56px;
+        font-family: "Play", sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 23px;
+        align-items: center;
+        text-align: center;
+        margin-right: 0;
+    }
+
+
+
+
 
 }
+
+
+
+
 
 .s {
     display: flex;
@@ -1593,23 +1672,23 @@
 }
 
 @media (max-width: 500px) {
-    .chance__box-red, .chance__box-green, .chance__box-orange {
-        min-width: 154px;
-        width: 154px;
-        height: 56px;
-        font-family: "Play", sans-serif;
-        font-style: normal;
-        font-weight: 700;
-        font-size: 20px;
-        line-height: 23px;
-        align-items: center;
-        text-align: center;
-        margin-right: 0;
-    }
+    /*.chance__box-red, .chance__box-green, .chance__box-orange {*/
+    /*    min-width: 154px;*/
+    /*    width: 154px;*/
+    /*    height: 56px;*/
+    /*    font-family: "Play", sans-serif;*/
+    /*    font-style: normal;*/
+    /*    font-weight: 700;*/
+    /*    font-size: 20px;*/
+    /*    line-height: 23px;*/
+    /*    align-items: center;*/
+    /*    text-align: center;*/
+    /*    margin-right: 0;*/
+    /*}*/
 
-    .chance__box-red, .chance__box-orange {
-        padding-top: 15px;
-    }
+    /*.chance__box-red, .chance__box-orange {*/
+    /*    padding-top: 15px;*/
+    /*}*/
 
     .chance__box-green {
         padding-top: 3px;

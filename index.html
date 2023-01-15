@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link
             href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Play:wght@400;700&display=swap"
             rel="stylesheet">
@@ -68,7 +69,7 @@
                         </div>
                     </div>
                     <div class="modal__class-allnumb" v-if="mktuselectname.length > 0">
-                        <a class="modal__class-head--number--items"> {{ mktuselectname }} </a>
+                        <a id="cirItem1" class="modal__class-head--number--items"> {{ mktuselectname }} </a>
                         <div class="modal__class-head--number-item">
                             {{ mktuselectinfo }}
                         </div>
@@ -133,7 +134,7 @@
                         </div>
                     </div>
                     <div class="modal__class-allnumb" v-if="mktuselectname.length > 0">
-                        <a class="modal__class-head--number--items"> {{ mktuselectname }} </a>
+                        <a id="cirItem" class="modal__class-head--number--items"> {{ mktuselectname }} </a>
                         <div class="modal__class-head--number-item">
                             {{ mktuselectinfo }}
                         </div>
@@ -300,6 +301,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="chance__register">
                 <a href="#" class="chance__register-btn"> Зарегистрируйте товарный знак </a>
                 <div class="chance__register-desc"> Приоритет на товарный знак в день подачи</div>
@@ -450,18 +452,18 @@
                 <div class="chance__head"> Вероятность регистрации</div>
             </div>
             <div class="chance__box" v-if="worldpercent >= 70">
-                <a class="chance__box-red red-light" id="lowselectlaw" onclick="lawandnotlaw(1);"> Низкая </a>
-                <a class="chance__box-green" id="highselectlaw" onclick="lawandnotlaw(3);"> Высокая с
+                <a class="chance__box-red red-light" id="lowselectlaw1" onclick="lawandnotlaw1(1);"> Низкая </a>
+                <a class="chance__box-green" id="highselectlaw1" onclick="lawandnotlaw1(3);"> Высокая с
                     КиберПраво</a>
             </div>
             <div class="chance__box" v-else>
-                <a class="chance__box-orange orange-light" id="middleselectlaw" onclick="lawandnotlaw(2);">
+                <a class="chance__box-orange orange-light" id="middleselectlaw1" onclick="lawandnotlaw1(2);">
                     Средняя </a>
-                <a class="chance__box-green" id="highselectlaw" onclick="lawandnotlaw(3);"> Высокая с
+                <a class="chance__box-green" id="highselectlaw1" onclick="lawandnotlaw1(3);"> Высокая с
                     КиберПраво</a>
             </div>
             <div class="chance__numbers">
-                <div class="chance__number-item" id="hiddensmile1">
+                <div class="chance__number-item" id="hiddensmile11">
                     <div class="chance__number-item--smile" v-if="results.length > 4"><img
                             src="images/decor/sad.png">
                     </div>
@@ -471,18 +473,18 @@
                         <div class="chance__number-item--search--bad"> {{ totalfound }} шт</div>
                     </div>
                 </div>
-                <div class="chancenumber-item hidden" id="hiddensmile2">
-                    <div class="chancenumber-item--smile"><img src="images/decor/smile.png"></div>
-                    <div class="chancenumber-box">
-                        <div class="chancenumber-item--searchs"><span class="mm"> <img
+                <div class="chance__number-item hidden" id="hiddensmile12">
+                    <div class="chance__number-item--smile"><img class="smileMob" src="images/decor/smile.png"></div>
+                    <div class="chance__number-box">
+                        <div class="chance__number-item--searchs"><span class="mm"> <img
                                 src="images/icons/gal.png"> </span>
                             доработаем наименование;
                         </div>
-                        <div class="chancenumber-item--searchs"><span class="mm"> <img
+                        <div class="chance__number-item--searchs"><span class="mm"> <img
                                 src="images/icons/gal.png"> </span>
                             разработаем логотип;
                         </div>
-                        <div class="chancenumber-item--searchs"><span class="mm"> <img
+                        <div class="chance__number-item--searchs"><span class="mm"> <img
                                 src="images/icons/gal.png"> </span>
                             обойдем все препятствия;
                         </div>
