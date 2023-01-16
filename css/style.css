@@ -1119,6 +1119,11 @@
         width: 750px;
         /*margin-left: 15px;*/
     }
+    .search__head-box {
+        display: flex;
+        flex-wrap: wrap;
+        width: 51%;
+    }
 }
 
 @media (max-width: 1050px) {
@@ -1460,7 +1465,7 @@
     }
 
     .chance__find-box {
-        margin: 0;
+        margin: 0 0 0 10px;
     }
 
     #modalo1 {
@@ -1581,7 +1586,7 @@
         font-size: 16px;
         line-height: 20px;
         color: #000000;
-        width: 75%;
+        width: 31%;
         margin-left: 20px;
     }
 
@@ -1647,6 +1652,19 @@
     }
 
 
+    .chance__find {
+        display: flex;
+        flex-wrap: nowrap;
+        width: 90vw;
+        margin-left: 20px;
+        overflow: scroll;
+        justify-content: flex-start;
+        flex-direction: row;
+    }
+    .chance__find-box--item-name,.chance__find-box--item-number{
+        font-size: 15px;
+        text-align: center;
+    }
 
 
 

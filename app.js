@@ -177,7 +177,6 @@ const Search = {
             loading: false,
             noregproblems: false,
             displaymodalblock: "none",
-            // note: "main__search-box--filter--ul no-show"
         }
     },
     methods: {
@@ -270,151 +269,32 @@ const Search = {
             var element = document.getElementById("filter");
             var searchclass = document.getElementById("searchclass");
             const container = document.querySelector('#container2');
-            console.log(container)
-            // const container = document.querySelector('.main__title');
-            // const header = document.querySelector('.search');
-            // const btnMKT = document.querySelector('#filter-btn');
-            // const searchMainBlock = document.querySelector('.main__search-box');
-            // const flexBlock = document.querySelector('.flex');
-            // const main = document.querySelector('.main');
-            // let rang = document.createElement('div')
 
             if (element.classList.contains("no-show")) {
                 if (window.screen.width < 600) {
                     const modalSearchMKT = document.getElementById('modalSearchMKT');
                     modalSearchMKT.style.display = 'flex';
                 }
-
-                //
-                //
-                //         container.style.cssText = 'display:none';
-                //         header.style.cssText = 'display:none';
-                //         searchMainBlock.style.cssText = 'display:none';
-                //         btnMKT.innerHTML = `X`
-                //         btnMKT.style.cssText = `
-                //         width: 40px;
-                //         height: 40px;
-                //         border-radius: 50%;
-                //         background: #DD9C19;
-                //         font-size: 30px;
-                //         font-weight: normal;
-                //         color: #FFFFFF;
-                //         margin: 0;
-                //         padding: 7px 0;
-                //         // position: absolute;
-                //         // bottom: 50px;
-                //         // right: 0px;
-                //         position: fixed;
-                //         top: 10px;
-                //         right: 10px;
-                // 		`;
-                //         flexBlock.style.cssText = `
-                //             position: sticky;
-                //             top: 88px;
-                //         `;
-                //         rang.className = 'rang'
-                //         rang.innerHTML = `ВИД ДЕЯТЕЛЬНОСТИ:`;
-                //         main.prepend(rang)
-                //         searchclass.style.cssText=`
-                //         position: sticky;
-                //         top: 134px;
-                //         `;
-                //
-                //
-                //
-                //
-                //     }
-
                 document.querySelector('.main__search').style.cssText = "top:230px;"
                 element.classList.remove("no-show");
                 searchclass.classList.remove("no-show");
                 container.style.cssText = `top:112px;`
-
-
             } else {
-                // if (window.screen.width < 600) {
-                //     const modalSearchMKT = document.getElementById('modalSearchMKT');
-                //     modalSearchMKT.style.display = 'none';
-                // }
-
-
-                //     // const container = document.querySelector('.main__title');
-                //     rang = document.querySelector('.rang')
-                //     rang.remove()
-                //     container.style.cssText = 'display:block';
-                //     header.style.cssText = 'display:block';
-                //     searchMainBlock.style.cssText = 'display:block';
-                //     btnMKT.innerHTML = ` Указать сферу деятельности `
-                //     btnMKT.style.cssText = `
-                //     display: block;
-                //     background: rgba(0, 85, 181, 0.15);
-                //     border: 1px solid rgba(3, 73, 152, 0.15);
-                //     border-radius: 10px;
-                //     padding: 15px 10px;
-                //     font-family: "Play", sans-serif;
-                //     font-style: normal;
-                //     font-weight: 700;
-                //     font-size: 15px;
-                //     line-height: 21px;
-                //     color: rgba(78, 78, 78, 0.54);
-                //     max-width: 311px;
-                //     text-align: center;
-                //     width: 100%;
-                //     `
-                //
-                //
-                //
-                // }
                 element.classList.add("no-show");
                 searchclass.classList.add("no-show");
                 container.style.cssText = `top:0;`
-                // alert('dxd22')
                 document.querySelector('.main__search').style.cssText = "top:0;"
                 document.documentElement.scrollTop = 0;
-
             }
-
-
         },
-        // noshow1(e) {
-        //     e.preventDefault();
-        //     var element = document.getElementById("filter");
-        //     var searchclass = document.getElementById("searchclass");
-        //
-        //     if (element.classList.contains("no-show")) {
-        //         if (window.screen.width < 600) {
-        //             const modalSearchMKT = document.getElementById('modalSearchMKT');
-        //             modalSearchMKT.style.display = 'flex';
-        //         }
-        //
-        //
-        //
-        //         element.classList.remove("no-show");
-        //         searchclass.classList.remove("no-show");
-        //     } else {
-        //         if (window.screen.width < 600) {
-        //             const modalSearchMKT = document.getElementById('modalSearchMKT');
-        //             modalSearchMKT.style.display = 'none';
-        //         }
-        //         element.classList.add("no-show");
-        //         searchclass.classList.add("no-show");
-        //
-        //     }
-        //
-        //
-        // },
         removeselectmktu(mktuselectedindex) {
             this.selectedmktuindexes = this.selectedmktuindexes.replace(mktuselectedindex + ",", "")
         }
     }
 }
-
-console.log(Search.mktuselectname)
-
 Vue.createApp(Search).mount('#wrap')
 
 const ulNumber = document.getElementsByClassName('ul-number')
-console.log(ulNumber.length)
 for (let i = 0; i < ulNumber.length; i++) {
     ulNumber[i].onclick = () => ulNumber[i].style.cssText = `background: #dd9c19;color: #fff;`
 }

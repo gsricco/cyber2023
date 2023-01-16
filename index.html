@@ -52,7 +52,8 @@
                     </div>
                 </div>
             </div>
-            <div class="modal__adress" id="modal-adress"> Правообладатель:  <span>{{ selectedindex.address }}</span></div>
+            <div class="modal__adress" id="modal-adress"> Правообладатель: <span>{{ selectedindex.address }}</span>
+            </div>
             <div class="modal__nondef" id="modal__nondefinfo"> Неохраняемые элементы: <span>{{
                     selectedindex.unsecured_elements }}</span></div>
             <div class="modal__class">
@@ -190,12 +191,9 @@
                 <div class="main__title1"> Бесплатная онлайн-проверка товарного знака</div>
                 <div class="main__title2"> по базам роспатента</div>
             </div>
-
         </div>
         <div class="s">
             <div class="small-container">
-
-
                 <div class="main__search">
                     <form class="main__search-box" @submit.prevent="createServer">
                         <input class="main__search-box--line" type="text" v-model="query" id="searchline"
@@ -252,9 +250,10 @@
                                 </li>
                             </a>
                         </div>
+
+                    </ul>
+                </form>
             </div>
-            </ul>
-            </form>
         </div>
         <div class="chance" v-if="results.length > 0">
             <div class="chance__header">
@@ -300,7 +299,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="chance__register">
                 <a href="#" class="chance__register-btn"> Зарегистрируйте товарный знак </a>
                 <div class="chance__register-desc"> Приоритет на товарный знак в день подачи</div>
@@ -364,8 +362,6 @@
             <span class="modalTitle">Вид деятельности:</span>
             <input type="text" id="searchclass1" class="main__search-box--filter--search"
                    placeholder="Например, одежда или 25" v-bind:value="mktuquery" v-on:input="changekmtuselector">
-
-
             <ul class="main__search-box--filter--ul " id="filter">
                 <div v-if="mktuquery.length == 0">
                     <a href="#" class="link" v-for="mktuindex in allmktuindexes"
@@ -394,25 +390,18 @@
                         </li>
                     </a>
                 </div>
-
             </ul>
             <a href="#" type="button" class="main__search-box--filter" id="filter-btn-mob1" onclick="noshow1()">
                 Выбрать </a>
-
         </modal>
-
-
         <div class="container-mob">
             <div class="main__title-mob">
                 <div class="main__title1-mob"> Бесплатная онлайн-проверка товарного знака</div>
                 <div class="main__title2-mob"> по базам роспатента</div>
             </div>
-
         </div>
         <div class="s">
             <div class="small-container">
-
-
                 <div class="main__search">
                     <div class="main__search-box" @submit.prevent="createServer">
                         <input class="main__search-box--line" type="text" v-model="query" id="searchline"
@@ -496,8 +485,7 @@
             </div>
 
 
-<!--            Mobile-slides-->
-
+            <!--            Mobile-slides-->
             <div class="chance__find-desc"> Найденные товарные знаки:</div>
             <div class="chance__find">
                 <div class="chance__find-box" v-for="result in results">
