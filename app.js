@@ -235,6 +235,7 @@ const Search = {
             this.selectedmktuindexes = ''
 
             document.querySelector('#searchData').innerHTML=`Результат поиска: ${data.query}, ${data.mktu_array}`
+            document.querySelector('#searchData1').innerHTML=`Результат поиска: ${data.query}, ${data.mktu_array}`
 
         },
         async showinfo(id, img, cardindex, mktu, name) {
