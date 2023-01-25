@@ -185,7 +185,14 @@ const Search = {
             this.results = [];
             this.worldpercent = '';
             if (this.query == '') return;
+            let val = this.query
             this.loading = true;
+            alert('daun')
+            document.getElementById("filter").classList.add("no-show");
+            document.getElementById("searchclass").classList.add("no-show");
+            document.querySelector('#container2').style.cssText = `top:0;`
+            document.querySelector('.main__search').style.cssText = "top:0;"
+            document.documentElement.scrollTop = 0;
             const data = {
                 query: this.query,
                 "mktu_array": this.selectedmktuindexes.slice(0, -1)
@@ -200,14 +207,19 @@ const Search = {
                 body: JSON.stringify(data)
             })
 
+            console.log(data)
+
             const results2 = await res.json()
             this.results = results2.query_items
             if (this.results.length == 0) {
                 this.noregproblems = true;
             }
             this.totalfound = results2.total_found
+            console.log(this.totalfound)
             this.worldpercent = Math.round(results2.word_percent_found * 100)
+            console.log(this.worldpercent)
             if (this.worldpercent >= 70) {
+
                 this.risksopost = ['Высокий риск сопоставления', 'modal__box-desc-head--red']
             }
             if ((this.worldpercent < 70) && (this.worldpercent >= 35)) {
@@ -217,6 +229,13 @@ const Search = {
                 this.risksopost = ['Низкий риск сопоставления', 'modal__box-desc-head--green']
             }
             this.loading = false;
+
+            alert('ddd')
+            this.query = ''
+            this.selectedmktuindexes = ''
+
+            document.querySelector('#searchData').innerHTML=`Результат поиска: ${data.query}, ${data.mktu_array}`
+
         },
         async showinfo(id, img, cardindex, mktu, name) {
             this.loading = true;
@@ -269,6 +288,7 @@ const Search = {
             var element = document.getElementById("filter");
             var searchclass = document.getElementById("searchclass");
             const container = document.querySelector('#container2');
+            const form = document.querySelector('.main__search-filter--box')
 
             if (element.classList.contains("no-show")) {
                 if (window.screen.width < 600) {
@@ -278,7 +298,9 @@ const Search = {
                 document.querySelector('.main__search').style.cssText = "top:230px;"
                 element.classList.remove("no-show");
                 searchclass.classList.remove("no-show");
+                element.focus()
                 container.style.cssText = `top:112px;`
+
             } else {
                 element.classList.add("no-show");
                 searchclass.classList.add("no-show");
@@ -299,3 +321,9 @@ for (let i = 0; i < ulNumber.length; i++) {
     ulNumber[i].onclick = () => ulNumber[i].style.cssText = `background: #dd9c19;color: #fff;`
 }
 
+
+// let view = document.querySelector('.main__search-box--filter--ul');
+// let search = document.querySelector('#searchclass')
+// view.addEventListener('blur',()=> {
+//    alert('1111')
+// },true)

@@ -605,7 +605,7 @@
 .chance__number-item {
     display: flex;
     margin-top: 29px;
-    margin-left: 160px;
+    /*margin-left: 160px;*/
 }
 
 .chance__number-item--search {
@@ -1057,7 +1057,8 @@
 
 .modal__class-head--number-item {
     display: flex;
-    max-width: 621px;
+    /*max-width: 621px;*/
+    width: 80vw;
     height: 100px;
     margin-top: 15px;
     overflow: auto;
@@ -1222,7 +1223,7 @@
     /*}*/
     .chance__box-red, .chance__box-green, .chance__box-orange {
         min-width: 154px;
-        width: 190px;
+        width: 210px;
         height: 63px;
         font-family: "Play", sans-serif;
         font-style: normal;
@@ -1453,6 +1454,7 @@
         font-size: 20px;
         padding: 5px 5px;
         margin: 10px 0px;
+        width: 300px;
     }
 
     .chance__register-desc {
@@ -1480,6 +1482,7 @@
         height: 60.59px;
         /* left: 18px; */
         /* top: 45px; */
+        padding: 20px;
         font-family: 'Play';
         font-style: normal;
         font-weight: 700;
@@ -1622,6 +1625,7 @@
         font-size: 26px;
         line-height: 24px;
         padding: 0px 62px;
+        margin: 0;
     }
     .chance__number-item--searchs:first-child {
         margin-top: 10px;
@@ -1653,8 +1657,12 @@
 
 
     .chance__find {
-        display: flex;
-        flex-wrap: nowrap;
+        display: grid;
+        grid-template-columns: repeat(60, 1fr);
+
+
+        /*display: flex;*/
+        /*flex-wrap: nowrap;*/
         width: 90vw;
         margin-left: 20px;
         overflow: scroll;

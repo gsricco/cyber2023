@@ -123,3 +123,4 @@ function noshow1() {
     const modalSearchMKT = document.getElementById('modalSearchMKT');
     modalSearchMKT.style.display = 'none';
 }
+
