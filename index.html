@@ -367,7 +367,7 @@
                 <div v-if="mktuquery.length == 0">
                     <a href="#" class="link" v-for="mktuindex in allmktuindexes"
                        v-on:click="selectmktu(mktuindex.index);" v-on:click.prevent="doThat">
-									<span class="ul-number">
+									<span id="ul-number-mob" class="ul-number">
 									{{mktuindex.index}}
 									</span>
                         <li class="main__search-box--filter--ul--item">

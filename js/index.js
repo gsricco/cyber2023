@@ -124,3 +124,9 @@ function noshow1() {
     modalSearchMKT.style.display = 'none';
 }
 
+const searchInput = document.querySelector('#searchForm')
+
+searchInput.onfocus = function() {
+    if(!searchInput.value)
+    alert('ddddd')
+}

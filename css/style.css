@@ -1043,6 +1043,10 @@
     border: 1px solid rgb(221, 156, 25);
     border-radius: 50%;
 }
+#cirItem,#cirItem1{
+    height: 30px;
+    width: 30px;
+}
 
 .modal__class-head--number--items {
     margin-top: 15px;
@@ -1058,7 +1062,7 @@
 .modal__class-head--number-item {
     display: flex;
     /*max-width: 621px;*/
-    width: 80vw;
+    width: 94%;
     height: 100px;
     margin-top: 15px;
     overflow: auto;
@@ -1785,6 +1789,15 @@
     background: #F3F6FF;
 }
 
-
+#searchData, #searchData1{
+    font-family: 'Play';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 35px;
+    text-align: center;
+    color: #1E1E1E;
+    padding: 0 10px;
+}
 
 

@@ -187,7 +187,7 @@ const Search = {
             if (this.query == '') return;
             let val = this.query
             this.loading = true;
-            alert('daun')
+            // alert('daun')
             document.getElementById("filter").classList.add("no-show");
             document.getElementById("searchclass").classList.add("no-show");
             document.querySelector('#container2').style.cssText = `top:0;`
@@ -207,7 +207,7 @@ const Search = {
                 body: JSON.stringify(data)
             })
 
-            console.log(data)
+            // console.log(data)
 
             const results2 = await res.json()
             this.results = results2.query_items
@@ -215,9 +215,13 @@ const Search = {
                 this.noregproblems = true;
             }
             this.totalfound = results2.total_found
-            console.log(this.totalfound)
+
+            // console.log(this.totalfound)
+
             this.worldpercent = Math.round(results2.word_percent_found * 100)
-            console.log(this.worldpercent)
+
+            // console.log(this.worldpercent)
+
             if (this.worldpercent >= 70) {
 
                 this.risksopost = ['Высокий риск сопоставления', 'modal__box-desc-head--red']
@@ -230,12 +234,23 @@ const Search = {
             }
             this.loading = false;
 
-            alert('ddd')
+            // alert('ddd')
             this.query = ''
             this.selectedmktuindexes = ''
 
-            document.querySelector('#searchData').innerHTML=`Результат поиска: ${data.query}, ${data.mktu_array}`
-            document.querySelector('#searchData1').innerHTML=`Результат поиска: ${data.query}, ${data.mktu_array}`
+            const ulNumber = document.getElementsByClassName('ul-number')
+            const ulNumberMob = document.querySelectorAll('#ul-number-mob')
+            for (let i = 0; i < ulNumber.length; i++) {
+                ulNumber[i].style.cssText = `background: #fff;color: #dd9c19;`
+            }
+            for (let i = 0; i < ulNumberMob.length; i++) {
+                ulNumberMob[i].style.cssText = `background: #fff;color: #dd9c19;`
+            }
+
+            let strMKTY=''
+            if(data.mktu_array) strMKTY = ' и МКТУ:'
+            document.querySelector('#searchData').innerHTML=`Показан результат поиска для: ${data.query.toUpperCase()} ${strMKTY} ${data.mktu_array}.`
+            document.querySelector('#searchData1').innerHTML=`Показан результат поиска для:</br>  ${data.query.toUpperCase()}  ${strMKTY} ${data.mktu_array}.`
 
         },
         async showinfo(id, img, cardindex, mktu, name) {
@@ -311,7 +326,11 @@ const Search = {
             }
         },
         removeselectmktu(mktuselectedindex) {
+
             this.selectedmktuindexes = this.selectedmktuindexes.replace(mktuselectedindex + ",", "")
+            console.log(this.selectedmktuindexes,mktuselectedindex)
+            document.getElementsByClassName('ul-number')[mktuselectedindex-1].style.cssText = `background: #fff;color: #dd9c19;`
+            document.querySelectorAll('#ul-number-mob')[mktuselectedindex-1].style.cssText = `background: #fff;color: #dd9c19;`
         }
     }
 }
@@ -321,6 +340,8 @@ const ulNumber = document.getElementsByClassName('ul-number')
 for (let i = 0; i < ulNumber.length; i++) {
     ulNumber[i].onclick = () => ulNumber[i].style.cssText = `background: #dd9c19;color: #fff;`
 }
+
+
 
 
 // let view = document.querySelector('.main__search-box--filter--ul');
