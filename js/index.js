@@ -19,7 +19,6 @@ function lawandnotlaw(index) {
     } else {
         element4.classList.add("hidden");
         element5.classList.remove("hidden");
-        console.log(element4, element5)
         document.querySelector('#hiddensmile1').style.display = 'none';
         document.querySelector('#hiddensmile2').style.display = 'flex';
         if (typeof (element) != 'undefined' && element != null) {
@@ -53,7 +52,6 @@ function lawandnotlaw1(index) {
     } else {
         element4.classList.add("hidden");
         element5.classList.remove("hidden");
-        console.log(element4, element5)
         document.querySelector('#hiddensmile11').style.display = 'none';
         document.querySelector('#hiddensmile12').style.display = 'flex';
         if (typeof (element) != 'undefined' && element != null) {
@@ -124,9 +122,3 @@ function noshow1() {
     modalSearchMKT.style.display = 'none';
 }
 
-const searchInput = document.querySelector('#searchForm')
-
-searchInput.onfocus = function() {
-    if(!searchInput.value)
-    alert('ddddd')
-}

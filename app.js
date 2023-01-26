@@ -187,7 +187,7 @@ const Search = {
             if (this.query == '') return;
             let val = this.query
             this.loading = true;
-            // alert('daun')
+
             document.getElementById("filter").classList.add("no-show");
             document.getElementById("searchclass").classList.add("no-show");
             document.querySelector('#container2').style.cssText = `top:0;`
@@ -207,23 +207,14 @@ const Search = {
                 body: JSON.stringify(data)
             })
 
-            // console.log(data)
-
             const results2 = await res.json()
             this.results = results2.query_items
             if (this.results.length == 0) {
                 this.noregproblems = true;
             }
             this.totalfound = results2.total_found
-
-            // console.log(this.totalfound)
-
             this.worldpercent = Math.round(results2.word_percent_found * 100)
-
-            // console.log(this.worldpercent)
-
             if (this.worldpercent >= 70) {
-
                 this.risksopost = ['Высокий риск сопоставления', 'modal__box-desc-head--red']
             }
             if ((this.worldpercent < 70) && (this.worldpercent >= 35)) {
@@ -233,11 +224,9 @@ const Search = {
                 this.risksopost = ['Низкий риск сопоставления', 'modal__box-desc-head--green']
             }
             this.loading = false;
-
-            // alert('ddd')
+            //
             this.query = ''
             this.selectedmktuindexes = ''
-
             const ulNumber = document.getElementsByClassName('ul-number')
             const ulNumberMob = document.querySelectorAll('#ul-number-mob')
             for (let i = 0; i < ulNumber.length; i++) {
@@ -249,8 +238,8 @@ const Search = {
 
             let strMKTY=''
             if(data.mktu_array) strMKTY = ' и МКТУ:'
-            document.querySelector('#searchData').innerHTML=`Показан результат поиска для: ${data.query.toUpperCase()} ${strMKTY} ${data.mktu_array}. <button class="btnReset" onclick="location.reload()">Сбросить результаты</button>`
-            document.querySelector('#searchData1').innerHTML=`Показан результат поиска для:</br>  ${data.query.toUpperCase()}  ${strMKTY} ${data.mktu_array}.</br> <button class="btnResetMob" onclick="location.reload()">Сбросить результаты</button>`
+            document.querySelector('#searchData').innerHTML=`<span>Показан результат поиска для:</span> ${data.query.toUpperCase()} ${strMKTY} ${data.mktu_array}. <button class="btnReset" onclick="location.reload()">Сбросить результаты</button>`
+            document.querySelector('#searchData1').innerHTML=`<span>Показан результат поиска для:</span></br>  ${data.query.toUpperCase()}  ${strMKTY} ${data.mktu_array}.</br> <button class="btnResetMob" onclick="location.reload()">Сбросить результаты</button>`
 
         },
         async showinfo(id, img, cardindex, mktu, name) {
@@ -328,7 +317,6 @@ const Search = {
         removeselectmktu(mktuselectedindex) {
 
             this.selectedmktuindexes = this.selectedmktuindexes.replace(mktuselectedindex + ",", "")
-            console.log(this.selectedmktuindexes,mktuselectedindex)
             document.getElementsByClassName('ul-number')[mktuselectedindex-1].style.cssText = `background: #fff;color: #dd9c19;`
             document.querySelectorAll('#ul-number-mob')[mktuselectedindex-1].style.cssText = `background: #fff;color: #dd9c19;`
         }
@@ -343,9 +331,3 @@ for (let i = 0; i < ulNumber.length; i++) {
 
 
 
-
-// let view = document.querySelector('.main__search-box--filter--ul');
-// let search = document.querySelector('#searchclass')
-// view.addEventListener('blur',()=> {
-//    alert('1111')
-// },true)
