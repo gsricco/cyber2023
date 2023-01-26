@@ -249,8 +249,8 @@ const Search = {
 
             let strMKTY=''
             if(data.mktu_array) strMKTY = ' и МКТУ:'
-            document.querySelector('#searchData').innerHTML=`Показан результат поиска для: ${data.query.toUpperCase()} ${strMKTY} ${data.mktu_array}.`
-            document.querySelector('#searchData1').innerHTML=`Показан результат поиска для:</br>  ${data.query.toUpperCase()}  ${strMKTY} ${data.mktu_array}.`
+            document.querySelector('#searchData').innerHTML=`Показан результат поиска для: ${data.query.toUpperCase()} ${strMKTY} ${data.mktu_array}. <button class="btnReset" onclick="location.reload()">Сбросить результаты</button>`
+            document.querySelector('#searchData1').innerHTML=`Показан результат поиска для:</br>  ${data.query.toUpperCase()}  ${strMKTY} ${data.mktu_array}.</br> <button class="btnResetMob" onclick="location.reload()">Сбросить результаты</button>`
 
         },
         async showinfo(id, img, cardindex, mktu, name) {
