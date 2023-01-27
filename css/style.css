@@ -1826,6 +1826,7 @@
     text-align: center;
     color: #fbb121;
     padding: 0 10px;
+    word-break: break-word;
 }
 #searchData span, #searchData1 span{
     color:#034998;
