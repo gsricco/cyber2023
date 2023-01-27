@@ -213,7 +213,8 @@ const Search = {
                 this.noregproblems = true;
             }
             this.totalfound = results2.total_found
-            this.worldpercent = Math.round(results2.word_percent_found * 100)
+            // this.worldpercent = Math.round(results2.word_percent_found * 100)
+            this.worldpercent = this.totalfound
             if (this.worldpercent >= 70) {
                 this.risksopost = ['Высокий риск сопоставления', 'modal__box-desc-head--red']
             }

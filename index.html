@@ -260,12 +260,12 @@
             <div class="chance__header">
                 <div class="chance__head"> Вероятность регистрации</div>
             </div>
-            <div class="chance__box" v-if="worldpercent > 70">
+            <div class="chance__box" v-if="worldpercent > 35">
                 <a class="chance__box-red red-light" id="lowselectlaw" onclick="lawandnotlaw(1);"> Низкая </a>
                 <a class="chance__box-green" id="highselectlaw" onclick="lawandnotlaw(3);"> Высокая с
                     КиберПраво</a>
             </div>
-            <div class="chance__box" v-else="worldpercent > 35">
+            <div class="chance__box" v-else>
                 <a class="chance__box-orange orange-light" id="middleselectlaw" onclick="lawandnotlaw(2);">
                     Средняя </a>
                 <a class="chance__box-green" id="highselectlaw" onclick="lawandnotlaw(3);"> Высокая с
@@ -441,12 +441,12 @@
             <div class="chance__header">
                 <div class="chance__head"> Вероятность регистрации</div>
             </div>
-            <div class="chance__box" v-if="worldpercent > 70">
+            <div class="chance__box" v-if="worldpercent > 35">
                 <a class="chance__box-red red-light" id="lowselectlaw1" onclick="lawandnotlaw1(1);"> Низкая </a>
                 <a class="chance__box-green" id="highselectlaw1" onclick="lawandnotlaw1(3);"> Высокая с
                     КиберПраво</a>
             </div>
-            <div class="chance__box" v-else="worldpercent > 70">
+            <div class="chance__box" v-else>
                 <a class="chance__box-orange orange-light" id="middleselectlaw1" onclick="lawandnotlaw1(2);">
                     Средняя </a>
                 <a class="chance__box-green" id="highselectlaw1" onclick="lawandnotlaw1(3);"> Высокая с
